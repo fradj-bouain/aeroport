@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Epiavion{% endblock %}
+ {% block titre %} {{ parent() | upper }} MODIFIER-AVION {% endblock %}
+
+{% block body %}
+   <div class="edit">
+    {{ include('epiavion/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('epiavion_index') }}"><button type="button" class="btn btn-primary">return à list</button></a>
+
+    {{ include('epiavion/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

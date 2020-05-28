@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+          <meta charset="utf-8">
+            <link rel="stylesheet" href="{{asset('css/card.css')}}" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script defer src="/your-path-to-fontawesome/js/all.js"></script> <!--load all styles -->
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+   {% if  is_granted('ROLE_USER')%}
+  <a class="navbar-brand" href="#" >
+   
+   <p> <i class="fa fa-user"></i> {{app.user.username}}</p>
+  </a>
+  {% endif %}
+
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="{{ path('epipassager_new') }}">Reserver</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ path('epiavion_index') }}">Avions</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ path('epipassager_index') }}">Avions Reservée</a>
+    </li>
+
+           {% if  is_granted('ROLE_USER')%}
+     <li class="nav-item">
+      <a class="nav-link" href="{{ path('epiavion_new') }}">Crée Avions</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="{{ path('fos_user_security_logout') }}">DECONNEXION</a>
+    </li>
+        {% endif %}
+
+
+  
+  </ul>
+</nav>
+
+<div class="container-fluid">
+ <h1 class="title">{% block titre %}Bienvenue a{% endblock %} </h1> 
+                      {% block body %}{% endblock %}
+                     {% block javascripts %}{% endblock %}
+
+
+</div>
+
+</body>
+</html>
+
+
+
+

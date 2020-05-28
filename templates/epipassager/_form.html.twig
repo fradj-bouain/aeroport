@@ -1,0 +1,14 @@
+<div class="container">
+{{ form_start(form, {'attr':{'class': 'was-validated'  }}) }}
+  
+               <div class="form-group">{{ form_row(form.name, {'attr':{'class': 'form-control'  }})}}</div>
+               <div class="form-group">{{ form_row(form.cin, {'attr':{'class': 'form-control'}})}}</div>
+               <div class="form-group">{{ form_row(form.email, {'attr':{'class': 'form-control'}})}}</div>
+               <div class="form-group">{{ form_row(form.age, {'attr':{'class': 'form-control'}})}}</div>
+               <div class="form-group">{{ form_row(form.classe, {'attr':{'class': 'form-control'}})}}</div>
+               <div class="form-group">{{ form_row(form.payee, {'attr':{'class' : 'form-control'}})}}</div>
+               <div class="form-group">{{ form_row(form.epiavion, {'attr':{'class' : 'form-control'}})}}</div>
+
+    <button class="btn btn-success" style="width:350px ; margin-left:350px">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+</div>

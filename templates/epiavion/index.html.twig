@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Epiavion index{% endblock %}
+
+
+{% block titre %} {{ parent() | upper }} -AVIONS {% endblock %}
+  
+    
+{% block body %}
+ 
+<div class="ajout">
+    <a href="{{ path('epiavion_new') }}"><button type="button" class="btn btn-primary">Crée nouvelle</button></a>
+</div>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Point depart</th>
+                <th>Point D'arrivée</th>
+                <th>Prix</th>
+                <th>Horaire depart</th>
+                <th>Horaire arrivée</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for epiavion in epiavions %}
+            <tr>
+                <td>{{ epiavion.id }}</td>
+                <td>{{ epiavion.name }}</td>
+                <td>{{ epiavion.pdepat }}</td>
+                <td>{{ epiavion.parrivee }}</td>
+                <td>{{ epiavion.prix }}$</td>
+                <td>{{ epiavion.horairedepart ? epiavion.horairedepart|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ epiavion.horairearrive ? epiavion.horairearrive|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+               <a href="{{ path('epiavion_show', {'id': epiavion.id}) }}"><button type="button" class="btn btn-info">show</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Epipassager{% endblock %}
+ {% block titre %} {{ parent() | upper }} CREER-PASSAGER {% endblock %}
+
+{% block body %}
+
+
+
+    {{ include('epipassager/_form.html.twig') }}
+<a href="{{ path('epipassager_index') }}" class="new"><button type="button" class="btn btn-primary" style="width:350px ">return à list</button></a>
+    
+{% endblock %}

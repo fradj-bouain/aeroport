@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Epipassager index{% endblock %}
+{% block titre %} {{ parent() | upper }} -PASSAGERS {% endblock %}
+
+{% block body %}
+
+    <div class="ajout">
+    <a href="{{ path('epipassager_new') }}"><button type="button" class="btn btn-primary">Réserver Un Avion</button></a>
+</div>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Cin</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Classe</th>
+                <th>Nom Payée</th>
+                <th>Nom Avion</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for epipassager in epipassagers %}
+            <tr>
+                <td>{{ epipassager.id }}</td>
+                <td>{{ epipassager.name }}</td>
+                <td>{{ epipassager.cin }}</td>
+                <td>{{ epipassager.email }}</td>
+                <td>{{ epipassager.age }}</td>
+                <td>{{ epipassager.classe }}</td>
+                <td>{{ epipassager.payee }}</td>
+                <td>{{ epipassager.epiavion.name }}</td>
+
+                <td>
+                    <a href="{{ path('epipassager_show', {'id': epipassager.id}) }}"><button type="button" class="btn btn-info">show</button></a>
+                   
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

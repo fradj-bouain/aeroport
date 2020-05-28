@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Epipassager{% endblock %}
+ {% block titre %} {{ parent() | upper }} -PASSAGER {% endblock %}
+
+{% block body %}
+    <h1 class="title">PASSAGER</h1>
+
+    <table class="table">
+        <tbody>
+       
+            <tr>
+                <th>Nom</th>
+                <td>{{ epipassager.name }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ epipassager.cin }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ epipassager.email }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ epipassager.age }}</td>
+            </tr>
+            <tr>
+                <th>Classe</th>
+                <td>{{ epipassager.classe }} <span class="glyphicon glyphicon-star"></span></td>
+            </tr>
+             <tr>
+                <th>nom de votre payée</th>
+                <td>{{ epipassager.payee }}</td>
+            </tr>
+            <tr>
+                <th>Nom de votre avion</th>
+                <td>{{ epipassager.epiavion.name }}</td>
+            </tr>
+            <tr>
+                <th>Point depart</th>
+                <td>{{ epipassager.epiavion.pdepat }}</td>
+            </tr>
+            <tr>
+                <th>Point D'arrivée</th>
+                <td>{{ epipassager.epiavion.parrivee }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ epipassager.epiavion.prix }}</td>
+            </tr>
+            <tr>
+                <th>Horaire depart</th>
+                <td>{{ epipassager.epiavion.horairedepart ? epipassager.epiavion.horairedepart|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Horaire arrivée</th>
+                <td>{{ epipassager.epiavion.horairearrive ? epipassager.epiavion.horairearrive|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+             <tr>
+                <th>Image</th>
+                <td><img src="{{ asset('img/' ~ epipassager.image.url)}}" alt="{{epipassager.image.alt}}"></td>
+            </tr>
+            
+        </tbody>
+    </table>
+<div class="fun">
+    <a href="{{ path('epipassager_index') }}"><button type="button" class="btn btn-primary">return à list</button></a>
+</div>
+   {% if  is_granted('ROLE_USER')%}
+
+<div class="fun">
+    <a href="{{ path('epipassager_edit', {'id': epipassager.id}) }}"><button type="button" class="btn btn-secondary">modifier</button></a>
+</div>
+<div class="fun">
+    {{ include('epipassager/_delete_form.html.twig') }}
+</div>
+{% endif %}
+
+{% endblock %}

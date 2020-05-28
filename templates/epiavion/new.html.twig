@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Epiavion{% endblock %}
+
+ {% block titre %} {{ parent() | upper }} CREER-AVION {% endblock %}
+
+{% block body %}
+    {{ include('epiavion/_form.html.twig') }}
+
+ <a href="{{ path('epiavion_index') }}"  ><button type="button" class="btn btn-primary" style="width:350px;margin-top:15px; ">return à list</button></a>
+{% endblock %}

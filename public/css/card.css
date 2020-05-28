@@ -1,0 +1,73 @@
+.bady{
+  margin-top: 100px;
+
+}
+.back{
+  margin-left: 555px;
+}
+.edit{
+  margin-left: 250px;
+  margin-top: 50px
+}
+.fun{
+  display: inline-block;
+  margin-left: 35px;
+
+
+}
+.delet{
+float: right;
+padding-left:5px
+
+}
+.ajout{
+  margin: 10px
+
+}
+.new{
+  float: right
+}
+.table{
+    background: #fff;
+}
+.title{
+  text-align: center;
+  font-size: 40px;
+  margin-top: 50px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  background: #fff;
+  display: inline-block;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.point {
+  color: #111;
+  font-size: 20px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
